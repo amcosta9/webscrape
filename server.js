@@ -60,13 +60,12 @@ app.get("/scrape", function(req, res) {
             result.summary = $(element).find(".entry-summary").text();
             result.link = $(element).find("a").find("img").attr("src");
 
-            // Using our Article model, create a new entry
-            // This effectively passes the result object to the entry (and the title and link)
+            // Using Article model, create a new entry
             var entry = new Article(result);
 
-            // Now, save that entry to the db
+            // Save entry to the db
             entry.save(function(err, doc) {
-                // Log any errors
+                // Catch errors
                 if (err) {
                     console.log(err);
                 }
@@ -78,9 +77,24 @@ app.get("/scrape", function(req, res) {
 
         });
     });
-    // Tell the browser that we finished scraping the text
+    // Tell browser we finished scraping the text
+    // redirect here?
     res.send("Scrape Complete");
 });
+
+// This will get the articles we scraped from the mongoDB
+app.get("/articles", function(req, res) {
+    Article.find({}, function(error, doc) {
+        if (error) {
+            res.send(error);
+        } else {
+            res.send(doc);
+        }
+    });
+});
+
+
+
 
 // Listen on port 3000
 app.listen(3000, function() {
