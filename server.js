@@ -94,6 +94,49 @@ app.get("/articles", function(req, res) {
 });
 
 
+// This will grab an article by it's ObjectId
+app.get("/articles/:id", function(req, res) {
+
+    Article.findOne({'_id': req.params.id})
+        .populate("comment")
+        .exec(function (error, doc) {
+                if (error) {
+                    res.send(error);
+                } else {
+                    res.json(doc);
+                }
+            }
+        )
+
+});
+
+
+// Create a new comment or replace an existing comment
+app.post("/articles/:id", function(req, res) {
+
+    var newComment = new Comment(req.body);
+    newComment.save(function(error, doc) {
+        if (error) {
+            res.send(error);
+        } else {
+            Article.findOneAndUpdate({'_id': req.params.id}, {"comment": doc._id}, {new: true})
+                .exec(function(err,newdoc) {
+                    // Send any errors to the browser
+                    if (err) {
+                        res.send(err);
+                    }
+                    // Or send the newdoc to the browser
+                    else {
+                        res.send(newdoc);
+                    }
+
+                })
+        }
+    });
+});
+
+
+
 
 
 // Listen on port 3000
