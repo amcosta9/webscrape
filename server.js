@@ -62,7 +62,7 @@ app.get("/scrape", function(req, res) {
 
             // Using Article model, create a new entry
             var entry = new Article(result);
-
+            console.log(result.title);
             // Save entry to the db
             entry.save(function(err, doc) {
                 // Catch errors

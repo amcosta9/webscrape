@@ -11,7 +11,7 @@ var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
     // title is a required string
     title: {
-        type: String,
+        type: String, index: { unique: true },
         required: true
     },
     // link is a required string
