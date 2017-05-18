@@ -56,7 +56,7 @@ $(document).on("click", "#savecomment", function() {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
 
-    // Run a POST request to change the note, using what's entered in the inputs
+    // POST comment to db
     $.ajax({
         method: "POST",
         url: "/articles/" + thisId,
@@ -71,11 +71,11 @@ $(document).on("click", "#savecomment", function() {
         .done(function(data) {
             // Log the response
             console.log(data);
-            // Empty the notes section
-            $("#notes").empty();
+            // Empty the comment section
+            $("#comments").empty();
         });
 
-    // Also, remove the values entered in the input and textarea for note entry
+    // clear input fields
     $("#titleinput").val("");
     $("#bodyinput").val("");
 });

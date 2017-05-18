@@ -25,8 +25,14 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Use files in 'public' directory available
-app.use(express.static("public"));
+app.use(express.static(process.cwd() + "/public"));
 
 // Configure and 'recipe-webscraper' database w/ Mongoose
 mongoose.connect("mongodb://localhost/recipe-webscraper");
