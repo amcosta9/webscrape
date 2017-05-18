@@ -1,20 +1,12 @@
 /* Web Scrape and Add Comments - app.js
  * Created by Ariel - 5.16.2017
  * ================================================== */
+$('.modal').modal();
 
-// var express = require('express'),
-    // router = express.Router();
-
-
-// ==================================================
-// Need to put all the below logic into handlebars
-// ==================================================
-
-
-// user clicks article (<p> tag)
-$(document).on("click", "p", function() {
+// user clicks article (<li> tag)
+$(document).on("click", "li", function() {
     // Empty the comments from the comments section
-    $("#comments").empty();
+    // $("#modal1").empty();
     // save the id from the p tag
     var thisId = $(this).attr("data-id");
     console.log('clicked ', thisId);
@@ -28,13 +20,11 @@ $(document).on("click", "p", function() {
         .done(function(data) {
             console.log(data);
             // article title
-            $("#comments").append("<h2>" + data.title + "</h2>");
-            // comment title input field
-            $("#comments").append("<input id='titleinput' name='title' >");
-            // comment body input field
-            $("#comments").append("<textarea id='bodyinput' name='body'></textarea>");
+            $(".modal-content").html("<h4>" + data.title + "</h4><br>" +
+                "<input id='titleinput' name='title' >" +
+                "<textarea id='bodyinput' name='body'></textarea>");
             // button to submit new comment, tied to article id
-            $("#comments").append("<button data-id='" + data._id + "' id='savecomment'>Save Comment</button>");
+            $(".modal-footer").html("<button data-id='" + data._id + "' id='savecomment' class='modal-action modal-close'>Save Comment</button>");
 
             // if comment on the article exists
             if (data.comment) {
@@ -42,6 +32,7 @@ $(document).on("click", "p", function() {
                 $("#titleinput").val(data.comment.title);
                 $("#bodyinput").val(data.comment.body);
             }
+            $('#modal1').modal('open');
         });
 });
 
@@ -74,3 +65,4 @@ $(document).on("click", "#savecomment", function() {
     $("#titleinput").val("");
     $("#bodyinput").val("");
 });
+

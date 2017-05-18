@@ -9,15 +9,14 @@
      </div> <!--/.row-->
  </div> <!--/.header-->
  <div id="wrapper" class="container">
-     <!--<div class="main">-->
          <div class="row">
             <div class="col s6">
                 <div id="articles">
                     <ul>
                         {{#each foobar}}
-                            <li>
-                                <p data-id="{{this.id}}">
-                                    {{this.title}} <br>
+                            <li data-id="{{this.id}}" href="#modal1">
+                                <h3> {{this.title}}</h3><br>
+                                <p>
                                     <img src="{{this.link}}"> <br>
                                     {{this.summary}}
                                 </p>
@@ -26,16 +25,26 @@
 
 
                     </ul>
-                </div>
+                </div> <!--/#articles-->
             </div>
              <div class="col s6">
-                <div id="comments">
-                    testing, testing 1 2 3
-                </div>
+                <!--<div id="comments">-->
+                    <!-- Modal Trigger -->
+                    <!--<a class="waves-effect waves-light btn" href="#modal1">Modal</a>-->
+
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                <!--</div>-->
             </div>
 
          </div> <!--/.row-->
-     <!--</div>&lt;!&ndash;/.main&ndash;&gt;-->
  </div><!--/#wrapper /.container-->
 
  <footer class="page-footer">
