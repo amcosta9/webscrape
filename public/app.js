@@ -6,12 +6,12 @@ var express = require('express'),
     router = express.Router();
 
 // Grab the articles as a json
-$.getJSON("/articles", function(data) {
-    var hbsObject = {
-        foobar:data
-    };
-    console.log('hbsObject', hbsObject);
-    res.render('index', hbsObject);
+// $.getJSON("/articles", function(data) {
+//     var hbsObject = {
+//         foobar:data
+//     };
+//     console.log('hbsObject', hbsObject);
+//     res.render('index', hbsObject);
 
     // // For each one
     // for (var i = 0; i < data.length; i++) {
@@ -23,7 +23,7 @@ $.getJSON("/articles", function(data) {
     //             data[i].summary +
     //         "</p>");
     // }
-});
+// });
 
 
 // ==================================================

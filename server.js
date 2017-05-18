@@ -94,7 +94,7 @@ app.get("/articles", function(req, res) {
         if (error) {
             res.send(error);
         } else {
-            res.send(doc);
+            res.render('index', {foobar: doc});
         }
     });
 });
