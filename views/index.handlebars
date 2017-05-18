@@ -12,10 +12,26 @@
      <div class="main">
          <div class="row">
             <div class="col s6">
-                <div id="articles"></div>
+                <div id="articles">
+                    <ul>
+                        {{#each foobar}}
+                            <li>
+                                <p data-id=" + {{this.id}} + ">
+                                    {{this.title}} <br>
+                                    <img src=" + {{this.link}} "> <br>
+                                    {{this.summary}}
+                                </p>
+                            </li>
+                        {{/each}}
+
+
+                    </ul>
+                </div>
             </div>
              <div class="col s6">
-                <div id="comments"></div>
+                <div id="comments">
+
+                </div>
             </div>
 
          </div> <!--/.row-->
