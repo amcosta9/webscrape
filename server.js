@@ -35,7 +35,7 @@ app.set("view engine", "handlebars");
 app.use(express.static(process.cwd() + "/public"));
 
 // Configure and 'recipe-webscraper' database w/ Mongoose
-mongoose.connect("mongodb://heroku_v1qg27w2:3k1r5j61k6bqfgs2gvooptbb50@ds143071.mlab.com:43071/heroku_v1qg27w2");
+mongoose.connect("mongodb://heroku_z83r1xrt:941lpf3jbt6cbl37jqkp1gilbt@ds147551.mlab.com:47551/heroku_z83r1xrt");
 var db = mongoose.connection;
 
 // Catch errors
