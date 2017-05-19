@@ -51,6 +51,10 @@ db.once("open", function() {
 // Routes
 // ======
 
+app.get('/', function(req, res) {
+    res.redirect('/articles');
+});
+
 // A GET request to scrape smittenkitchen.com
 app.get("/scrape", function(req, res) {
     // Grab body of html with request
