@@ -3,8 +3,8 @@
  * ================================================== */
 
 // Note and Article models
-var Comment = require("./models/Comment.js"),
-    Article = require("./models/Article.js"),
+var Comment = require("./models/comment.js"),
+    Article = require("./models/article.js"),
  // Dependencies
     express = require("express"),
     bodyParser = require("body-parser"),
