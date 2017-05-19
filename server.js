@@ -2,16 +2,16 @@
  * Created by Ariel - 5.15.2017
  * ================================================== */
 
-// Note and Article models
-var Comment = require("./models/comment.js"),
-    Article = require("./models/article.js"),
  // Dependencies
-    express = require("express"),
+var express = require("express"),
     bodyParser = require("body-parser"),
     logger = require("morgan"),
     mongoose = require("mongoose"),
     request = require("request"),
     cheerio = require("cheerio");
+// Note and Article models
+var Comment = require("./models/comment.js"),
+    Article = require("./models/article.js");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
