@@ -35,7 +35,7 @@ app.set("view engine", "handlebars");
 app.use(express.static(process.cwd() + "/public"));
 
 // Configure and 'recipe-webscraper' database w/ Mongoose
-mongoose.connect("mongodb://localhost/recipe-webscraper");
+mongoose.connect("mongodb://root:root@ds143071.mlab.com:43071/heroku_v1qg27w2");
 var db = mongoose.connection;
 
 // Catch errors
