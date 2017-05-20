@@ -9,9 +9,6 @@ var express = require("express"),
     mongoose = require("mongoose"),
     request = require("request"),
     cheerio = require("cheerio");
-// Note and Article models
-var Comment = require("./models/comment.js"),
-    Article = require("./models/article.js");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
@@ -30,6 +27,10 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+// Note and Article models
+var Comment = require("./models/comment.js"),
+    Article = require("./models/article.js");
 
 // Use files in 'public' directory available
 app.use(express.static(process.cwd() + "/public"));
@@ -147,9 +148,9 @@ app.post("/articles/:id", function(req, res) {
 
 
 
-
+var port = proccess.env.PORT || 3000;
 
 // Listen on port 3000
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log("App running on port 3000!");
 });
